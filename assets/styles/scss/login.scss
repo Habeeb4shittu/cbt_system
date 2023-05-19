@@ -1,0 +1,60 @@
+@import './partials/autoload';
+
+body {
+    display              : grid;
+    place-items          : center;
+    grid-template-columns: repeat(2, 1fr);
+    background           : $bg;
+
+    // padding              : 0 12rem 0 0;
+    @media screen and (max-width: 790px) {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+img {
+    height    : 100%;
+    width     : 100%;
+    object-fit: cover;
+    z-index   : 10;
+
+    @media screen and (max-width: 790px) {
+        display: none;
+    }
+}
+
+form {
+    width         : 100%;
+    max-width     : 30rem;
+    padding       : $pad;
+    display       : flex;
+    flex-direction: column;
+    gap           : 1rem;
+
+    .err {
+        width              : 100%;
+        // // color        : white;
+        font-weight        : bolder;
+        text-align         : center;
+        border-radius      : .4rem;
+        grid-column        : 1 / span 2;
+        max-width          : 25rem;
+        justify-self       : center;
+    }
+
+    h1 {
+        text-align   : center;
+        margin-bottom: 0;
+        color        : $primaryColor;
+        font-weight  : bold;
+    }
+
+    .inputs {
+        @include input(100%);
+        justify-content: space-between;
+    }
+
+    button {
+        @include btn;
+    }
+}

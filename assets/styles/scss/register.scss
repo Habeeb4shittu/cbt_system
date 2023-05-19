@@ -1,0 +1,97 @@
+@import './partials/autoload';
+
+body {
+    display    : grid;
+    place-items: center;
+    background : $bg;
+}
+
+form {
+    width          : 100%;
+    max-width      : 40rem;
+    padding        : $pad;
+    gap            : 1rem;
+    display        : flex;
+    flex-direction : column;
+    gap            : .5rem;
+    justify-content: center;
+    align-items    : center;
+
+    @media screen and (min-width: 790px) {
+        display              : grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .err {
+        width              : 100%;
+        // // color        : white;
+        font-weight        : bolder;
+        text-align         : center;
+        border-radius      : .4rem;
+        grid-column        : 1 / span 2;
+        max-width          : 25rem;
+        justify-self       : center;
+    }
+
+    h1 {
+        text-align   : center;
+        margin-bottom: 0;
+        color        : $primaryColor;
+        font-weight  : bold;
+        grid-area    : 1 /span 2;
+    }
+
+    .inputs {
+        @include input(100%);
+        justify-content: space-between;
+        max-width      : 25rem;
+    }
+
+    .gender {
+        display        : flex;
+        position       : relative;
+        width          : 100%;
+        height         : 3rem;
+        max-width      : 25rem;
+        align-items    : center;
+        padding        : .5rem;
+        transition     : .5s;
+        justify-content: space-between;
+
+        @media screen and (min-width: 790px) {
+            margin-bottom: 0;
+        }
+
+        .male,
+        .female {
+            display: flex;
+            gap    : .5rem;
+
+            input {
+                display: none;
+
+                &:checked+label {
+                    img {
+                        border: .2rem solid $primaryColor;
+                    }
+                }
+            }
+
+            img {
+                transition   : .2s;
+                cursor       : pointer;
+                width        : 3rem;
+                height       : 3rem;
+                border-radius: 50%
+            }
+        }
+    }
+
+    button {
+        @include btn;
+        width       : 100%;
+        max-width   : 25rem;
+        grid-column : 1 / span 2;
+        justify-self: center;
+    }
+}

@@ -1,0 +1,59 @@
+@mixin input($width) {
+    position     : relative;
+    display      : flex;
+    width        : $width;
+    height       : 3rem;
+    border       : 1px solid $primaryColor;
+    border-radius: $rad;
+    align-items  : center;
+    box-shadow   : 2px 2px 2px 0 $shadow outset;
+    padding      : .5rem;
+    transition   : .5s;
+
+    label {
+        position  : absolute;
+        transition: .4s;
+        color     : $primaryColor;
+        padding   : 0 .3rem;
+
+        &.shift {
+            transform : translateY(-110%) translateX(5%);
+            background: $bg;
+            font-size : .8rem;
+        }
+
+        &.remove {
+            display: none;
+        }
+    }
+
+    input {
+        width     : 100%;
+        border    : none;
+        outline   : none;
+        font-size : 1.2rem;
+        background: none;
+        box-shadow: none;
+
+        &:not(:placeholder-shown)+label {
+            transform : translateY(-110%) translateX(5%);
+            background: $bg;
+            font-size : .8rem;
+        }
+    }
+}
+
+@mixin btn() {
+    padding      : calc($pad / 2) $pad;
+    background   : $primaryColor;
+    border       : none;
+    border-radius: .5rem;
+    color        : $secondaryColor;
+    position     : relative;
+    box-shadow   : 0 0 .1rem .1rem #ebe9e570;
+    transition   : .5s;
+
+    &:hover {
+        box-shadow: none;
+    }
+}
